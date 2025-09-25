@@ -10,8 +10,8 @@ public class _27_RemoveElement2 {
         return k;
     }
     public static void main(String[] args) {
-//        int [] a = {3,2,2,3};
-//        System.out.println(removeElement(a,3));
-//        System.out.println("DONE!");
+        int [] a = {3,2,2,3};
+        System.out.println(removeElement(a,3));
+        System.out.println("DONE!");
     }
 }

@@ -1,7 +1,4 @@
-import java.util.HashMap;
-import java.util.Map;
-
-public class test {
+public class _findMostAppearances {
     public static int[] findMostAppearances(int[] list) {
         if (list==null || list.length ==0){
             return new int[] {0};

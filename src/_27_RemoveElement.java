@@ -6,10 +6,11 @@ public class _27_RemoveElement {
             if (nums[i] == val) {
                 // xoá phần tử nums[i]
                 for (int j = i; j <= (n - 2); j++) {
-                    nums[j] = nums[j + 1];
+                    nums[j] = nums[j + 1]; // dồn số tiếp sau thay num[j]
                 }
                 n--;
-            } else{ // không phải xoá
+            }
+            else { // không phải xoá
                 i++;
             }
         }
