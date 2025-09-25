@@ -17,7 +17,7 @@ public class _1295_FindNumbersWithEvenDigits {
     public static int findNumbers(int[] nums) {
         int count = 0;
         for (int num : nums) {
-            // Lấy số chữ số của num, nếu số chữ số là chẵn thì tăng biến đếm
+            // Lấy số chữ số của num, nếu số chữ số là chẵn thì tăng biến đếm ++
             int digitCount = countDigits(num);
             if (digitCount % 2 == 0) {
                 count++;
@@ -32,7 +32,7 @@ public class _1295_FindNumbersWithEvenDigits {
      * @param num the input integer (assumed non-negative)
      * @return number of digits of num
      *
-     * Example:
+     * Ex:
      * num = 4444 => return 4
      */
     private static int countDigits(int num) {
