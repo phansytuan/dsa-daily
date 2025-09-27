@@ -1,4 +1,5 @@
-/**
+/** Thao tác Duyệt mảng
+ *
  * LeetCode 1295 - Find Numbers with Even Number of Digits
  *
  * This class provides methods to determine how many numbers in an array have an even number of digits.
@@ -45,7 +46,6 @@ public class _1295_FindNumbersWithEvenDigits {
             current = current / 10;
             digitCount++;
         }
-
         return digitCount;
     }
 

@@ -1,4 +1,5 @@
-/**
+/** Thao tác Thêm phần tử vào mảng
+ *
  * LeetCode 88 - Merge Sorted Array
  *
  * This class provides a method to merge two sorted arrays into one sorted array.
@@ -35,22 +36,22 @@ public class _88_MergeSortedArray {
      * @param size  the current number of valid elements in arr
      */
     private static void insertIntoSortedArray(int value, int[] arr, int size) {
-        boolean inserted = false;
+        boolean timDuocK = false;
 
         for (int k = 0; k < size; k++) {
             if (arr[k] > value) {
-                // Found the position -> shift elements right
+                // Found the position -> shift elements (phần tử s lớn hơn) right
                 for (int i = size - 1; i >= k; i--) {
                     arr[i + 1] = arr[i];
                 }
                 arr[k] = value;
-                inserted = true;
+                timDuocK = true;
                 break;
             }
         }
 
-        if (!inserted) {
-            // If no larger element found, place value at the end
+        if (!timDuocK) {
+            // If no larger element found, place *value at the end
             arr[size] = value;
         }
     }
@@ -60,8 +61,7 @@ public class _88_MergeSortedArray {
         int[] nums2 = {3, 0, 6};
         merge(nums1, 4, nums2, 3);
 
-        // Expected nums1 after merge: [2,3,3,4,5,6,0]
-        // (Note: nums2 contains "0", so final array still sorted correctly. các giá trị 0 như "vị trí trống")
+        // Expected nums1 after merge: [0,2,3,3,4,5,6]
         System.out.println(java.util.Arrays.toString(nums1));
     }
 }
