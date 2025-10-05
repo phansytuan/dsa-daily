@@ -1,0 +1,1 @@
+Xin chào Java Core 2.0!
