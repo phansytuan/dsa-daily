@@ -1,7 +1,5 @@
 /** Thao tác Thêm phần tử vào mảng
  *
- * LeetCode 88 - Merge Sorted Array
- *
  * This class provides a method to merge two sorted arrays into one sorted array.
  * nums1 has enough space at the end to hold all elements from nums2.
  */
