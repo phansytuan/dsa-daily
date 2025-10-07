@@ -7,14 +7,11 @@ final class Student {
     private final String name;
     private final String address;
 
-    private Student(Builder builder) {
-        this.id = builder.id;
-        this.name = builder.name;
-        this.address = builder.address;
-    }
+    private Student(Builder builder) { this.id = builder.id; this.name = builder.name; this.address = builder.address; }
 
     // Inner Static  Builder class
     public static class Builder {
+
         private int id;
         private String name;
         private String address;
@@ -23,21 +20,17 @@ final class Student {
             return new Builder();
         }
 
-        private Builder() {
-        }
+        private Builder() { }
 
-        public Builder setId(int id) {
-            this.id = id;
+        public Builder setId(int id) { this.id = id;
             return this;
         }
 
-        public Builder setName(String name) {
-            this.name = name;
+        public Builder setName(String name) { this.name = name;
             return this;
         }
 
-        public Builder setAddress(String address) {
-            this.address = address;
+        public Builder setAddress(String address) { this.address = address;
             return this;
         }
 
@@ -48,9 +41,7 @@ final class Student {
     }
 
     @Override
-    public String toString() {
-        return "id = " + id + ", name = " + name + ", address = " + address;
-    }
+    public String toString() { return "id = " + id + ", name = " + name + ", address = " + address; }
 }
 
 // Client sử dụng
