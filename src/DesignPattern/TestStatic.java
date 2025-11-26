@@ -1,7 +1,7 @@
 package DesignPattern;
 
 /* 👉 Ở đây:
-
+ * 
  *  school chỉ tồn tại một lần duy nhất cho mọi Student.
  *   
  *  Khi changeSchool(), tất cả object đều thấy thay đổi.
