@@ -6,7 +6,6 @@ import java.util.List;
 
 // 1️⃣ Component
 interface Task {
-
     String getTitle();
     void setTitle(String title);
     void display();
@@ -96,10 +95,10 @@ public class CompositeDP {
         ├── simpleTask1 : SimpleTask ("Complete Coding")        ← Leaf
         ├── simpleTask2 : SimpleTask ("Write Documentation")    ← Leaf
         └── phase1Tasks : TaskList (Composite)
-            ├── SimpleTask ("Design")                   ← Leaf
-            └── SimpleTask ("Implementation")           ← Leaf
+            ├── SimpleTask ("Design")                  ← Leaf
+            └── SimpleTask ("Implementation")          ← Leaf
 
-            
+
 CompositeDP (class main) là Client
 Task là Giao diện chung
 projectTasks là Composite cha, chứa nhiều phần tử con khác nhau:
