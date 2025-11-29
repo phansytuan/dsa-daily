@@ -1,18 +1,18 @@
 package DesignPattern;
 
-class Singleton {
+class SingletonTest_Singleton {
 
-    private static Singleton single_instance = null;
+    private static SingletonTest_Singleton single_instance = null;
     public String s;
 
-    private Singleton() {
+    private SingletonTest_Singleton() {
         s = "String from Singleton class";
     }
 
     // Method
-    public static Singleton getInstance() {
+    public static SingletonTest_Singleton getInstance() {
         if (single_instance == null) {
-            single_instance = new Singleton();
+            single_instance = new SingletonTest_Singleton();
         }
         return single_instance;
     }
@@ -21,8 +21,8 @@ class Singleton {
 public class SingletonTest {
     public static void main(String[] args) {
 
-        Singleton x = Singleton.getInstance();
-        Singleton y = Singleton.getInstance();
+        SingletonTest_Singleton x = SingletonTest_Singleton.getInstance();
+        SingletonTest_Singleton y = SingletonTest_Singleton.getInstance();
 
         // Thay đổi giá trị thông qua x
         x.s = x.s.toUpperCase();

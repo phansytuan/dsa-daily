@@ -8,7 +8,7 @@ public class _1672_RichestCustomerWealth {
      *
      * @param a 2D array where a[i][j] represents the wealth of customer i in bank j
      * @return maximum total wealth of any customer
-     *
+     * <p>
      * Algorithm:
      * - Iterate over each customer (row in the 2D array).
      * - Sum all bank accounts for that customer.
@@ -42,5 +42,6 @@ public class _1672_RichestCustomerWealth {
         int[][] b = {{1, 5}, {7, 3}, {3, 5}};
 
         System.out.println(maximumWealth(b));
+        System.out.println(maximumWealth(a));
     }
 }
