@@ -5,6 +5,7 @@ Repo luyện tập hằng ngày: bài tập cấu trúc dữ liệu & giải thu
 ## Cấu trúc
 
 ```
+test/                        # unit test JUnit 5, cùng cấu trúc package với src/
 src/
 ├── _<số>_<TênBài>.java      # lời giải LeetCode, ví dụ _88_MergeSortedArray.java
 ├── DesignPattern/           # Singleton, Factory, Builder, Bridge, Decorator, ...
@@ -25,12 +26,28 @@ src/
   (ví dụ `_88_MergeSortedArray2.java`).
 - Các class nằm trực tiếp trong `src/` không khai báo `package`; code trong thư mục
   con khai báo `package` khớp với đường dẫn.
+- Test đặt trong `test/`, tên `<TênClass>Test.java`, cùng package với class được test.
 
 ## Chạy thử
 
-Project dùng `src/` làm source root, không có Maven/Gradle:
+Project dùng `src/` làm source root:
 
 ```bash
 javac -d out src/LeapYear.java
 java -cp out LeapYear
 ```
+
+## Test & coverage
+
+Maven chỉ dùng để chạy test (`src/` vẫn là source root, `test/` là test root):
+
+```bash
+mvn test                 # chạy toàn bộ unit test
+mvn test -Dtest=LeapYearTest
+```
+
+JaCoCo tự chạy cùng `mvn test`; báo cáo coverage nằm ở
+`target/site/jacoco/index.html` (và `jacoco.csv`).
+
+Các class chỉ có `main()` để demo (DesignPattern, java_core Collection/Lambda/Thread demo, ...)
+chưa có test — coverage thấp ở đó là do phần code demo in ra console.
