@@ -218,21 +218,17 @@
 //        sc.close();
 //    }
 //}
-import java.util.*;
+import util.ConsoleInput;
 
 public class _GiaiMa {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int t = Integer.parseInt(scanner.nextLine());
-
-        for (int i = 0; i < t; i++) {
-            String[] input = scanner.nextLine().split(" ");
+        ConsoleInput.forEachCase((caseNumber, line) -> {
+            String[] input = line.split(" ");
             String s = input[0];
             int n = Integer.parseInt(input[1]);
 
             System.out.println(decodeMessage(s, n));
-        }
-        scanner.close();
+        });
     }
 
     public static String decodeMessage(String s, int n) {

@@ -52,8 +52,9 @@
 //    }
 //}
 import java.util.Scanner;
-import java.util.LinkedHashMap;
 import java.util.Map;
+
+import util.StringUtils;
 
 class _CountCharactersInString {
 
@@ -62,10 +63,7 @@ class _CountCharactersInString {
             System.out.println("empty");
             return;
         }
-        LinkedHashMap<Character, Integer> countMap = new LinkedHashMap<>();
-        for(char ch : data.toCharArray()){
-            countMap.put(ch, countMap.getOrDefault(ch, 0) + 1);
-        }
+        Map<Character, Integer> countMap = StringUtils.countCharacters(data);
         StringBuilder result = new StringBuilder();
         for(Map.Entry<Character, Integer> entry : countMap.entrySet()){
             if(result.length() > 0) {

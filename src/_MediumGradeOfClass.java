@@ -1,7 +1,9 @@
-import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import util.ArrayUtils;
+import util.ConsoleInput;
 
 class _MediumGradeOfClass {
     static String mediumGrade(ArrayList<ArrayList<Integer>> scores) {
@@ -9,10 +11,7 @@ class _MediumGradeOfClass {
 
         // mỗi học sinh, tính trung bình điểm của các môn và cộng dồn
         for (ArrayList<Integer> studentScores : scores) {
-            int sum = 0;
-            for (int score : studentScores) {
-                sum += score;
-            }
+            int sum = ArrayUtils.sum(studentScores);
 
             double studentAvg = (double) sum / studentScores.size();
             totalStudentAverage += studentAvg;
@@ -28,14 +27,10 @@ class _MediumGradeOfClass {
      * Takes care of the problem input and output.
      */
     public static void main(String[] args) throws Exception {
-        Scanner scanner = new Scanner(System.in);
-        int cases = Integer.parseInt(scanner.nextLine());
-        for (int i = 1; i <= cases; ++i) {
-            String line = scanner.nextLine();
+        ConsoleInput.forEachCase((caseNumber, line) -> {
             ArrayList<ArrayList<Integer>> scores = parseInput(line);
-            System.out.println("Case " + i + ": " + mediumGrade(scores));
-        }
-        scanner.close();
+            System.out.println("Case " + caseNumber + ": " + mediumGrade(scores));
+        });
     }
 
     public static ArrayList<ArrayList<Integer>> parseInput(String input) {

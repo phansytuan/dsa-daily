@@ -1,5 +1,7 @@
 import java.util.Arrays;
 
+import util.ArrayUtils;
+
 /** 
  * Thao tác Xoá phần tử trong mảng 
  */
@@ -23,9 +25,7 @@ public class _27_RemoveElement {
 
             if (nums[i] == val) {
                 // Found element to remove -> shift all subsequent elements left
-                for (int j = i; j <= (n - 2); j++) {
-                    nums[j] = nums[j + 1];
-                }
+                ArrayUtils.shiftLeft(nums, i, n - 2);
                 n--; // Reduce effective array length
 
                 // note: we do not increment i here because the new nums[i] could also equal val and needs to be checked again

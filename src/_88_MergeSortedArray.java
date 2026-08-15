@@ -1,3 +1,5 @@
+import util.ArrayUtils;
+
 /** Thao tác Thêm phần tử vào mảng
  *
  * This class provides a method to merge two sorted arrays into one sorted array.
@@ -39,9 +41,7 @@ public class _88_MergeSortedArray {
         for (int k = 0; k < size; k++) {
             if (arr[k] > value) {
                 // Found the position -> shift elements (phần tử s lớn hơn) right
-                for (int i = size - 1; i >= k; i--) {
-                    arr[i + 1] = arr[i];
-                }
+                ArrayUtils.shiftRight(arr, k, size - 1);
                 arr[k] = value;
                 timDuocK = true;
                 break;
@@ -60,6 +60,6 @@ public class _88_MergeSortedArray {
         merge(nums1, 4, nums2, 3);
 
         // Expected nums1 after merge: [0,2,3,3,4,5,6]
-        System.out.println(java.util.Arrays.toString(nums1));
+        ArrayUtils.printArray(nums1);
     }
 }
