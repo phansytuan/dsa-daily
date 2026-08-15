@@ -15,7 +15,8 @@ public class MainThreads {
       t1.join();
       t2.join();
     } catch (InterruptedException e) {
-      e.printStackTrace();
+      Thread.currentThread().interrupt();
+      throw new IllegalStateException("Bị ngắt khi đang đợi các luồng kết thúc", e);
     }
 
     System.out.println("Cả hai luồng đã hoàn thành.");
