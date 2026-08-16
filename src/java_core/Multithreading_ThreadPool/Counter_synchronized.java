@@ -61,7 +61,8 @@ public class Counter_synchronized {
       t2.join();
     }
     catch (InterruptedException e) {
-      e.printStackTrace();
+      Thread.currentThread().interrupt();
+      throw new IllegalStateException("Bị ngắt khi đang đợi các luồng đếm kết thúc", e);
     }
 
     // In ra kết quả cuối cùng của biến count

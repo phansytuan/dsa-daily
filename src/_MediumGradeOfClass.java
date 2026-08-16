@@ -1,16 +1,22 @@
+import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import util.ArrayUtils;
-import util.ConsoleInput;
 
 class _MediumGradeOfClass {
     static String mediumGrade(ArrayList<ArrayList<Integer>> scores) {
+        if (scores == null || scores.isEmpty()) {
+            throw new IllegalArgumentException("Danh sách điểm rỗng, không tính được trung bình");
+        }
         double totalStudentAverage = 0.0;
 
         // mỗi học sinh, tính trung bình điểm của các môn và cộng dồn
         for (ArrayList<Integer> studentScores : scores) {
+            if (studentScores.isEmpty()) {
+                throw new IllegalArgumentException("Một học sinh không có điểm môn nào");
+            }
             int sum = ArrayUtils.sum(studentScores);
 
             double studentAvg = (double) sum / studentScores.size();
@@ -26,11 +32,37 @@ class _MediumGradeOfClass {
     /**
      * Takes care of the problem input and output.
      */
-    public static void main(String[] args) throws Exception {
-        ConsoleInput.forEachCase((caseNumber, line) -> {
-            ArrayList<ArrayList<Integer>> scores = parseInput(line);
-            System.out.println("Case " + caseNumber + ": " + mediumGrade(scores));
-        });
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        try {
+            if (!scanner.hasNextLine()) {
+                System.out.println("Invalid input: expected the number of test cases.");
+                return;
+            }
+            int cases;
+            try {
+                cases = Integer.parseInt(scanner.nextLine().trim());
+            }
+            catch (NumberFormatException e) {
+                System.out.println("Invalid input: the number of test cases must be an integer.");
+                return;
+            }
+            for (int i = 1; i <= cases; ++i) {
+                if (!scanner.hasNextLine()) {
+                    System.out.println("Invalid input: missing data for case " + i + ".");
+                    return;
+                }
+                ArrayList<ArrayList<Integer>> scores = parseInput(scanner.nextLine());
+                if (scores.isEmpty()) {
+                    System.out.println("Invalid input for case " + i + ": expected scores like [[1,2],[3,4]].");
+                    continue;
+                }
+                System.out.println("Case " + i + ": " + mediumGrade(scores));
+            }
+        }
+        finally {
+            scanner.close();
+        }
     }
 
     public static ArrayList<ArrayList<Integer>> parseInput(String input) {
@@ -50,9 +82,16 @@ class _MediumGradeOfClass {
             String[] parts = item.split(",");
             ArrayList<Integer> nums = new ArrayList<Integer>();
             for (String part: parts) {
-                nums.add(Integer.parseInt(part.trim()));
+                try {
+                    nums.add(Integer.parseInt(part.trim()));
+                }
+                catch (NumberFormatException e) {
+                    // bỏ qua giá trị không phải số
+                }
             }
-            result.add(nums);
+            if (!nums.isEmpty()) {
+                result.add(nums);
+            }
         }
         return result;
     }

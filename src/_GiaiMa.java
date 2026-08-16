@@ -218,17 +218,55 @@
 //        sc.close();
 //    }
 //}
-import util.ConsoleInput;
+import java.util.*;
 
 public class _GiaiMa {
     public static void main(String[] args) {
-        ConsoleInput.forEachCase((caseNumber, line) -> {
-            String[] input = line.split(" ");
-            String s = input[0];
-            int n = Integer.parseInt(input[1]);
+        Scanner scanner = new Scanner(System.in);
+        try {
+            if (!scanner.hasNextLine()) {
+                System.out.println("Dữ liệu không hợp lệ: thiếu số lượng test case.");
+                return;
+            }
+            int t;
+            try {
+                t = Integer.parseInt(scanner.nextLine().trim());
+            }
+            catch (NumberFormatException e) {
+                System.out.println("Dữ liệu không hợp lệ: số lượng test case phải là số nguyên.");
+                return;
+            }
 
-            System.out.println(decodeMessage(s, n));
-        });
+            for (int i = 0; i < t; i++) {
+                if (!scanner.hasNextLine()) {
+                    System.out.println("Dữ liệu không hợp lệ: thiếu dòng dữ liệu thứ " + (i + 1) + ".");
+                    return;
+                }
+                String[] input = scanner.nextLine().trim().split("\\s+");
+                if (input.length < 2) {
+                    System.out.println("Dữ liệu không hợp lệ: cần chuỗi và số hàng, ví dụ \"abcdef 2\".");
+                    continue;
+                }
+                String s = input[0];
+                int n;
+                try {
+                    n = Integer.parseInt(input[1]);
+                }
+                catch (NumberFormatException e) {
+                    System.out.println("Dữ liệu không hợp lệ: số hàng phải là số nguyên.");
+                    continue;
+                }
+                if (n < 1) {
+                    System.out.println("Dữ liệu không hợp lệ: số hàng phải >= 1.");
+                    continue;
+                }
+
+                System.out.println(decodeMessage(s, n));
+            }
+        }
+        finally {
+            scanner.close();
+        }
     }
 
     public static String decodeMessage(String s, int n) {

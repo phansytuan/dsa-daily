@@ -17,7 +17,10 @@ public class MyThread extends Thread {
       try {
         Thread.sleep(900); // Tạm dừng 0.9 giây
       } catch (InterruptedException e) {
-        e.printStackTrace();
+        // Trả lại cờ interrupt và dừng luồng, không bỏ qua tín hiệu ngắt
+        Thread.currentThread().interrupt();
+        System.out.println(name + " bị ngắt, dừng sớm.");
+        return;
       }
     }
   }
