@@ -27,15 +27,37 @@ class _MediumGradeOfClass {
     /**
      * Takes care of the problem input and output.
      */
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int cases = Integer.parseInt(scanner.nextLine());
-        for (int i = 1; i <= cases; ++i) {
-            String line = scanner.nextLine();
-            ArrayList<ArrayList<Integer>> scores = parseInput(line);
-            System.out.println("Case " + i + ": " + mediumGrade(scores));
+        try {
+            if (!scanner.hasNextLine()) {
+                System.out.println("Invalid input: expected the number of test cases.");
+                return;
+            }
+            int cases;
+            try {
+                cases = Integer.parseInt(scanner.nextLine().trim());
+            }
+            catch (NumberFormatException e) {
+                System.out.println("Invalid input: the number of test cases must be an integer.");
+                return;
+            }
+            for (int i = 1; i <= cases; ++i) {
+                if (!scanner.hasNextLine()) {
+                    System.out.println("Invalid input: missing data for case " + i + ".");
+                    return;
+                }
+                ArrayList<ArrayList<Integer>> scores = parseInput(scanner.nextLine());
+                if (scores.isEmpty()) {
+                    System.out.println("Invalid input for case " + i + ": expected scores like [[1,2],[3,4]].");
+                    continue;
+                }
+                System.out.println("Case " + i + ": " + mediumGrade(scores));
+            }
         }
-        scanner.close();
+        finally {
+            scanner.close();
+        }
     }
 
     public static ArrayList<ArrayList<Integer>> parseInput(String input) {
@@ -55,9 +77,16 @@ class _MediumGradeOfClass {
             String[] parts = item.split(",");
             ArrayList<Integer> nums = new ArrayList<Integer>();
             for (String part: parts) {
-                nums.add(Integer.parseInt(part.trim()));
+                try {
+                    nums.add(Integer.parseInt(part.trim()));
+                }
+                catch (NumberFormatException e) {
+                    // bỏ qua giá trị không phải số
+                }
             }
-            result.add(nums);
+            if (!nums.isEmpty()) {
+                result.add(nums);
+            }
         }
         return result;
     }
