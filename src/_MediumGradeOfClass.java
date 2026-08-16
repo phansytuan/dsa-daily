@@ -5,10 +5,16 @@ import java.util.regex.Pattern;
 
 class _MediumGradeOfClass {
     static String mediumGrade(ArrayList<ArrayList<Integer>> scores) {
+        if (scores == null || scores.isEmpty()) {
+            throw new IllegalArgumentException("Danh sách điểm rỗng, không tính được trung bình");
+        }
         double totalStudentAverage = 0.0;
 
         // mỗi học sinh, tính trung bình điểm của các môn và cộng dồn
         for (ArrayList<Integer> studentScores : scores) {
+            if (studentScores.isEmpty()) {
+                throw new IllegalArgumentException("Một học sinh không có điểm môn nào");
+            }
             int sum = 0;
             for (int score : studentScores) {
                 sum += score;
