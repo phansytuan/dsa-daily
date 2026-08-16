@@ -3,6 +3,8 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import util.ArrayUtils;
+
 class _MediumGradeOfClass {
     static String mediumGrade(ArrayList<ArrayList<Integer>> scores) {
         if (scores == null || scores.isEmpty()) {
@@ -15,10 +17,7 @@ class _MediumGradeOfClass {
             if (studentScores.isEmpty()) {
                 throw new IllegalArgumentException("Một học sinh không có điểm môn nào");
             }
-            int sum = 0;
-            for (int score : studentScores) {
-                sum += score;
-            }
+            int sum = ArrayUtils.sum(studentScores);
 
             double studentAvg = (double) sum / studentScores.size();
             totalStudentAverage += studentAvg;

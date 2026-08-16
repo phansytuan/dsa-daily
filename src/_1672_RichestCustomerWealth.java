@@ -1,3 +1,5 @@
+import util.ArrayUtils;
+
 /**
  * Thao tác với Mảng 2 chiều
  */
@@ -17,17 +19,12 @@ public class _1672_RichestCustomerWealth {
      */
     public static int maximumWealth(int[][] a) {
         int soKhachHang = a.length;     // number of customers (rows)
-        int soNganHang = a[0].length;   // number of banks (columns)
 
         int maxWealth = 0;
 
         for (int i = 0; i < soKhachHang; i++) {
-            int tongCuaKhach = 0; // sum of wealth for current customer 
-
             // Sum wealth across all banks for this customer (tinhTongHangI)
-            for (int j = 0; j < soNganHang; j++) {
-                tongCuaKhach += a[i][j];
-            }
+            int tongCuaKhach = ArrayUtils.sum(a[i]);
 
             if (tongCuaKhach > maxWealth) {
                 maxWealth = tongCuaKhach;

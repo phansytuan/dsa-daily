@@ -1,3 +1,5 @@
+import util.ArrayUtils;
+
 public class _977_SquaresOfSortedArray {
     public static int[] sortedSquares(int[] nums) {
         int[] arr = new int[nums.length];
@@ -45,9 +47,6 @@ public class _977_SquaresOfSortedArray {
     public static void main(String[] args) {
         int[] nums= {-4,-1,0,3,10};
         int[] arr= sortedSquares(nums);
-//        System.out.println(nums.length);
-        for(int i=0; i<nums.length; i++){
-            System.out.print(arr[i] + " ");
-        }
+        ArrayUtils.printArray(arr);
     }
 }

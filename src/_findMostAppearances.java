@@ -1,3 +1,5 @@
+import util.ArrayUtils;
+
 public class _findMostAppearances {
     public static int[] findMostAppearances(int[] list) {
         if (list==null || list.length ==0){
@@ -11,10 +13,7 @@ public class _findMostAppearances {
                 return new int[] {0};
             }
         }
-        int[]count=new int[102];
-        for (int num:list){
-            count[num]++;
-        }
+        int[] count = ArrayUtils.countValues(list, 100);
 
         int maxCount=0;
         for (int i=2; i <= 100;i++){

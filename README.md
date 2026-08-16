@@ -7,6 +7,9 @@ Repo luyện tập hằng ngày: bài tập cấu trúc dữ liệu & giải thu
 ```
 src/
 ├── _<số>_<TênBài>.java      # lời giải LeetCode, ví dụ _88_MergeSortedArray.java
+├── util/                    # tiện ích dùng chung cho các bài tập
+│   ├── ArrayUtils.java          # in mảng, dịch phần tử, tính tổng, đếm giá trị
+│   └── StringUtils.java         # đếm tần suất ký tự (mảng ASCII / LinkedHashMap)
 ├── DesignPattern/           # Singleton, Factory, Builder, Bridge, Decorator, ...
 └── java_core/
     ├── Collection/              # List, Map, Set, Queue và Collections util

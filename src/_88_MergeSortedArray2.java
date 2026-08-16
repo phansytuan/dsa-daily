@@ -1,3 +1,5 @@
+import util.ArrayUtils;
+
 /**
  * Kỹ thuật 2 con trỏ: Thêm phần tử vào mảng. 
  * 
@@ -56,9 +58,7 @@ public class _88_MergeSortedArray2 {
         int[] n2 = {4, 5, 6};
         merge(n1, 3, n2, 3);
 
-        for (int num : n1) {
-            System.out.print(num + " ");
-        }
-        System.out.println("\nDone!");
+        ArrayUtils.printArray(n1);
+        System.out.println("Done!");
     }
 }
